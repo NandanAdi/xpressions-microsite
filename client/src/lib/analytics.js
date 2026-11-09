@@ -2,7 +2,7 @@
 // NEVER send personal data (email, name, phone) to any analytics service.
 
 const GA_ID = import.meta.env.VITE_GA_MEASUREMENT_ID || '';
-const API_URL = import.meta.env.VITE_API_URL || '';
+const API_URL = import.meta.env.VITE_API_URL || 'https://xpressions-microsite.onrender.com';
 
 const ALLOWED_EVENTS = new Set([
   'page_view', 'primary_cta_click', 'explore_competitions_click',

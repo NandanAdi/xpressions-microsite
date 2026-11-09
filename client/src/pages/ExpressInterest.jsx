@@ -104,7 +104,7 @@ export default function ExpressInterest() {
       quizResult: quizResult || undefined,
     };
 
-    const apiUrl = import.meta.env.VITE_API_URL || '';
+    const apiUrl = import.meta.env.VITE_API_URL || 'https://xpressions-microsite.onrender.com';
 
     try {
       const res = await fetch(`${apiUrl}/api/interest`, {
