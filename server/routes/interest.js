@@ -1,5 +1,6 @@
 import { Router } from 'express';
 import express from 'express';
+import mongoose from 'mongoose';
 import Interest from '../models/Interest.js';
 import { interestSchema } from '../validation/schemas.js';
 import { interestLimiter } from '../middleware/rateLimiter.js';
@@ -26,6 +27,15 @@ router.post('/', express.json({ limit: '10kb' }), interestLimiter, async (req, r
     // Honeypot check — silently accept
     if (data._hp) {
       logger.info('Honeypot triggered');
+      return res.status(201).json({
+        success: true,
+        message: "We've noted your interest. Thank you!",
+      });
+    }
+
+    // Graceful fallback if database is not connected yet
+    if (mongoose.connection.readyState !== 1) {
+      logger.warn({ interestCategory: data.interestCategory }, 'Interest received while DB is disconnected');
       return res.status(201).json({
         success: true,
         message: "We've noted your interest. Thank you!",

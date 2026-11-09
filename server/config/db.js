@@ -7,16 +7,28 @@ export async function connectDB() {
   let uri = process.env.MONGODB_URI;
 
   // Treat placeholder strings as unset
-  const isPlaceholder = uri && (uri.includes('cluster.mongodb.net') || uri.includes('<username>') || uri.includes('user:pass'));
+  const isPlaceholder =
+    uri &&
+    (uri.includes('cluster.mongodb.net') ||
+      uri.includes('<username>') ||
+      uri.includes('user:pass') ||
+      uri.includes('your_mongodb'));
+
   if (isPlaceholder) {
+    logger.warn('MONGODB_URI contains placeholder credentials; treating as unset.');
     uri = null;
   }
 
   if (!uri) {
     if (process.env.NODE_ENV === 'production') {
-      logger.error('MONGODB_URI not set in production — aborting');
-      process.exit(1);
+      logger.warn(
+        '⚠️ MONGODB_URI environment variable is not configured in production. ' +
+        'Server will start in standalone mode so health checks and API endpoints remain accessible. ' +
+        'Please add MONGODB_URI in your host dashboard (e.g., Render Environment settings) to persist data.'
+      );
+      return;
     }
+
     try {
       // Use in-memory MongoDB for local development
       logger.info('Starting local in-memory database (mongodb-memory-server)...');
@@ -25,7 +37,10 @@ export async function connectDB() {
       uri = mongod.getUri();
       logger.info({ uri }, 'mongodb-memory-server started');
     } catch (memErr) {
-      logger.warn({ err: memErr.message }, 'Could not start mongodb-memory-server. Running server without database connection.');
+      logger.warn(
+        { err: memErr.message },
+        'Could not start mongodb-memory-server. Running server without database connection.'
+      );
       return;
     }
   }
@@ -38,10 +53,6 @@ export async function connectDB() {
     logger.info('MongoDB connected successfully');
   } catch (err) {
     logger.error({ err: err.message }, 'MongoDB connection failed');
-    if (process.env.NODE_ENV === 'production') {
-      process.exit(1);
-    } else {
-      logger.warn('Continuing server startup in development mode so API endpoints remain responsive.');
-    }
+    logger.warn('Continuing server startup so API and health endpoints remain responsive.');
   }
 }

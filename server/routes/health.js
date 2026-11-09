@@ -1,4 +1,5 @@
 import { Router } from 'express';
+import mongoose from 'mongoose';
 
 const router = Router();
 
@@ -7,6 +8,7 @@ router.get('/', (req, res) => {
     status: 'ok',
     timestamp: new Date().toISOString(),
     service: 'xpressions-api',
+    db: mongoose.connection.readyState === 1 ? 'connected' : 'disconnected',
   });
 });
 
