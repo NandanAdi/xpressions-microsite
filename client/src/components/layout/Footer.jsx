@@ -108,7 +108,7 @@ export default function Footer() {
                 </Link>
               </li>
               <li className="pt-2 text-xs text-paper/50 leading-relaxed">
-                Part II, Step 3 university digital marketing assignment. Expressions of interest are non-binding.
+                {/* Part II, Step 3 university digital marketing assignment. Expressions of interest are non-binding. */}
               </li>
             </ul>
           </div>
