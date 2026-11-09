@@ -1,0 +1,14 @@
+{
+  "name": "Xpressions – XIMB Annual Fest",
+  "short_name": "Xpressions",
+  "description": "Annual management-cultural fest of Xavier Institute of Management (XIMB), XIM University, Bhubaneswar.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#101827",
+  "theme_color": "#101827",
+  "icons": [
+    { "src": "/icons/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/icons/icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "/icons/icon.svg", "sizes": "any", "type": "image/svg+xml" }
+  ]
+}

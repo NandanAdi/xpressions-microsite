@@ -1,0 +1,56 @@
+[
+  {
+    "id": "photo-garba-1",
+    "src": "/assets/photos/garba-night-1.jpg",
+    "alt": "XIMB students celebrating Garba Night with dandiya sticks and festive ethnic attire",
+    "category": "Campus and Fun",
+    "edition": "2026 Pre-Fest Edition",
+    "credit": "Official Team Xpressions Instagram (@ximbxpressions)",
+    "placeholder": false
+  },
+  {
+    "id": "photo-concert-1",
+    "src": "/assets/photos/concert-live-1.jpg",
+    "alt": "Celeblitz live stage concert with laser lights and massive student crowd",
+    "category": "Stage and Cultural",
+    "edition": "Past Festival Edition",
+    "credit": "Official Team Xpressions Instagram (@ximbxpressions)",
+    "placeholder": false
+  },
+  {
+    "id": "photo-halloween-1",
+    "src": "/assets/photos/halloween-night-1.jpg",
+    "alt": "Halloween Night campus costume showdown and themed runway at XIMB",
+    "category": "Campus and Fun",
+    "edition": "2026 Pre-Fest Edition",
+    "credit": "Official Team Xpressions Instagram (@ximbxpressions)",
+    "placeholder": false
+  },
+  {
+    "id": "photo-concert-2",
+    "src": "/assets/photos/concert-live-2.jpg",
+    "alt": "High-energy festival crowd with stage pyrotechnics and music headliners",
+    "category": "Stage and Cultural",
+    "edition": "Past Festival Edition",
+    "credit": "Official Team Xpressions Instagram (@ximbxpressions)",
+    "placeholder": false
+  },
+  {
+    "id": "photo-garba-2",
+    "src": "/assets/photos/garba-night-2.jpg",
+    "alt": "Garba Night festive decor, campus lighting, and student dance circle",
+    "category": "Campus and Fun",
+    "edition": "2026 Pre-Fest Edition",
+    "credit": "Official Team Xpressions Instagram (@ximbxpressions)",
+    "placeholder": false
+  },
+  {
+    "id": "photo-halloween-2",
+    "src": "/assets/photos/halloween-night-2.jpg",
+    "alt": "Spooky stage decor, horror installations and midnight DJ set at Xavier Square",
+    "category": "Stage and Cultural",
+    "edition": "2026 Pre-Fest Edition",
+    "credit": "Official Team Xpressions Instagram (@ximbxpressions)",
+    "placeholder": false
+  }
+]

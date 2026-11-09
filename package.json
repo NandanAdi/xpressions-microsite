@@ -1,0 +1,27 @@
+{
+  "name": "xpressions",
+  "version": "1.0.0",
+  "description": "Xpressions – Annual Management-Cultural Fest of XIMB, XIM University",
+  "private": true,
+  "scripts": {
+    "dev": "concurrently -n client,server -c cyan,yellow \"npm run dev --prefix client\" \"npm run dev --prefix server\"",
+    "build": "npm run build --prefix client",
+    "start": "npm run start --prefix server",
+    "seed": "npm run seed --prefix server",
+    "test": "npm run test --prefix client && npm run test --prefix server",
+    "lint": "eslint . --ext .js,.jsx",
+    "purge": "npm run purge --prefix server"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2",
+    "eslint": "^8.57.0",
+    "eslint-plugin-react": "^7.34.3",
+    "eslint-plugin-react-hooks": "^4.6.2",
+    "eslint-plugin-jsx-a11y": "^6.9.0",
+    "prettier": "^3.3.3"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}
+

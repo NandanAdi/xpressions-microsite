@@ -1,0 +1,152 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Fonts ─────────────────────────────────────────────── */
+@font-face {
+  font-family: 'Montserrat';
+  src: url('/assets/fonts/montserrat-variable.woff2') format('woff2');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Inter';
+  src: url('/assets/fonts/inter-variable.woff2') format('woff2');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ── Design tokens ──────────────────────────────────────── */
+:root {
+  --navy:    #07090E; /* Deep Stage Black */
+  --paper:   #F7F5F0;
+  --teal:    #B91C1C; /* Signature Xpressions Blood Red / Crimson */
+  --crimson: #991B1B;
+  --blood:   #7F1D1D;
+  --amber:   #F5B544; /* Warm Gold / Amber */
+  --plum:    #713F82;
+  --blue:    #245A9C;
+  --green:   #2F6B45;
+
+  /* category aliases */
+  --cat-business: var(--teal);
+  --cat-cultural:  var(--plum);
+  --cat-campus:    var(--blue);
+  --cat-social:    var(--green);
+
+  /* cursor spotlight */
+  --cursor-x: 50%;
+  --cursor-y: 50%;
+}
+
+/* ── Base ───────────────────────────────────────────────── */
+html {
+  scroll-behavior: smooth;
+  color-scheme: dark;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+body {
+  font-family: 'Inter', Arial, sans-serif;
+  background-color: var(--navy);
+  color: var(--paper);
+  font-size: 1rem;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* ── Skip link ──────────────────────────────────────────── */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 1rem;
+  z-index: 9999;
+  padding: 0.75rem 1.5rem;
+  background: var(--teal);
+  color: white;
+  font-weight: 700;
+  border-radius: 0 0 0.5rem 0.5rem;
+  text-decoration: none;
+  transition: top 0.2s;
+}
+.skip-link:focus {
+  top: 0;
+}
+
+/* ── Scrollbar ──────────────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--navy); }
+::-webkit-scrollbar-thumb { background: var(--teal); border-radius: 3px; }
+
+/* ── Cursor spotlight (desktop only) ───────────────────── */
+@media (hover: hover) and (pointer: fine) {
+  .spotlight-cursor::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+    background: radial-gradient(
+      600px circle at var(--cursor-x) var(--cursor-y),
+      rgba(185, 28, 28, 0.07),
+      transparent 50%
+    );
+  }
+}
+
+/* ── Utility classes ────────────────────────────────────── */
+.font-heading { font-family: 'Montserrat', Arial, sans-serif; }
+.font-body    { font-family: 'Inter', Arial, sans-serif; }
+
+/* Focus ring */
+:focus-visible {
+  outline: 2px solid var(--amber);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* ── Marquee pause on reduced-motion / hover ────────────── */
+.marquee-track {
+  animation: marquee 30s linear infinite;
+}
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track { animation-play-state: paused; }
+}
+
+/* ── Timeline line draw ─────────────────────────────────── */
+.timeline-line {
+  transform-origin: top;
+  transform: scaleY(0);
+  transition: transform 0.8s ease-out;
+}
+.timeline-line.visible {
+  transform: scaleY(1);
+}
+
+/* ── Category chip colours ──────────────────────────────── */
+.chip-business { background: var(--teal);  color: white; }
+.chip-cultural { background: var(--plum);  color: white; }
+.chip-campus   { background: var(--blue);  color: white; }
+.chip-social   { background: var(--green); color: white; }
+
+/* ── Static X motif fallback animation ─────────────────── */
+.x-motif-pulse {
+  animation: xpulse 3s ease-in-out infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .x-motif-pulse { animation: none; opacity: 0.8; }
+}
